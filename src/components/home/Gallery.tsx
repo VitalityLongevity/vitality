@@ -91,7 +91,7 @@ export default function Gallery() {
           <h2 className="font-montserrat font-bold text-4xl text-primary mb-4">
             Our Journey in Pictures
           </h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">
+<p className="text-gray-600 max-w-2xl mx-auto px-8 sm:px-4">
             From harvesting in the pristine Caribbean waters to transforming lives through wellness,
             explore our visual story of natural healing and vitality.
           </p>
