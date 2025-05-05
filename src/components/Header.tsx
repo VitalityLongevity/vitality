@@ -32,7 +32,6 @@ export default function Header() {
             <Link to="/collections" className="text-gray-700 hover:text-gray-900">Collections</Link>
             <Link to="/preparation" className="text-gray-700 hover:text-gray-900">Preparation</Link>
             <Link to="/education" className="text-gray-700 hover:text-gray-900">Education</Link>
-
             <Link to="/contact" className="text-gray-700 hover:text-gray-900">Contact</Link>
           </nav>
 
@@ -101,8 +100,20 @@ export default function Header() {
               >
                 About
               </Link>
+               <Link
+                to="/about"
+                className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50"
+              >
+                Preparation
+              </Link>
+               <Link
+                to="/preparation"
+                className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50"
+              >
+                Education
+              </Link>
               <Link
-                to="/contact"
+                to="/education"
                 className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50"
               >
                 Contact
