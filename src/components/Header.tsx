@@ -94,26 +94,21 @@ export default function Header() {
               >
                 Collections
               </Link>
-              <Link
-                to="/about"
-                className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50"
-              >
-                About
-              </Link>
+              
                <Link
-                to="/about"
+                to="/preparation"
                 className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50"
               >
                 Preparation
               </Link>
                <Link
-                to="/preparation"
+                to="/education"
                 className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50"
               >
                 Education
               </Link>
               <Link
-                to="/education"
+                to="/contact"
                 className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50"
               >
                 Contact
