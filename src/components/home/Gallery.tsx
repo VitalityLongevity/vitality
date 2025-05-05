@@ -4,7 +4,7 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 const GALLERY_IMAGES = [
   'https://yrlwfarajldbigpdyfuu.supabase.co/storage/v1/object/public/media//bottles.jpg',
   'https://yrlwfarajldbigpdyfuu.supabase.co/storage/v1/object/public/media//Cleaning.jpg',
-  'https://yrlwfarajldbigpdyfuu.supabase.co/storage/v1/object/public/media//swimming.jpg',
+  'https://yrlwfarajldbigpdyfuu.supabase.co/storage/v1/object/public/media//Swimming%202.jpg',
   'https://yrlwfarajldbigpdyfuu.supabase.co/storage/v1/object/public/media//Scale.jpg',
   'https://yrlwfarajldbigpdyfuu.supabase.co/storage/v1/object/public/media//Pour%202.jpg',
   'https://static.wixstatic.com/media/c73eb8_9c32b18a5bae4597816d66ca12958e46~mv2.jpg',
