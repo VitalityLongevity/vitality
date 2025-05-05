@@ -35,7 +35,7 @@ export default function InstagramFeed() {
         <div className="flex items-center justify-center space-x-2 mb-12">
           <Instagram size={28} className="text-primary" />
           <h2 className="font-montserrat font-bold text-3xl md:text-4xl text-primary">
-            @zazu_malazu_lifestyle_brooklyn
+            Follow us on IG
           </h2>
         </div>
 
