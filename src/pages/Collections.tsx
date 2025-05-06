@@ -1,13 +1,18 @@
 import React, { useState, useMemo } from 'react';
 import { products } from '../data/products';
 import ProductGrid from '../components/collections/ProductGrid';
-import FilterSidebar from '../components/collections/FilterSidebar';
-import { Filter } from 'lucide-react';
+import { Filter } from 'lucide-react'; 
+import FilterSidebar from '../components/collections/FilterSidebar'; 
+import FeaturedCollections from '../components/home/FeaturedCollections';
 
-type Category = 'gel';
+
+type Category = 'gel' | 'all';
 type SortOption = 'price-asc' | 'price-desc' | 'name-asc' | 'name-desc';
 
 export default function Collections() {
+
+    const driedProducts = products.filter(p => p.category === 'dried');
+
   const [selectedCategory, setSelectedCategory] = useState<Category>('gel');
   const [isFilterOpen, setIsFilterOpen] = useState(false);
   const [priceRange, setPriceRange] = useState<[number, number]>([0, 500]);
@@ -16,10 +21,11 @@ export default function Collections() {
   const [sortOption, setSortOption] = useState<SortOption>('price-asc');
 
   const filteredProducts = useMemo(() => {
-    let filtered = selectedCategory === 'gel'
-      ? products
-      : products.filter(p => p.category === selectedCategory);
-
+    let filtered = products.filter(p => p.category === 'gel');
+    if (selectedCategory === 'all') {
+      filtered = products.filter(p => p.category === 'gel');
+    }
+    
     // Apply price filter
     filtered = filtered.filter(p => p.price >= priceRange[0] && p.price <= priceRange[1]);
 
@@ -76,7 +82,7 @@ export default function Collections() {
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-      <h1 className="text-4xl font-bold text-gray-900 mb-8 text-center">Our Collections</h1>
+      <h1 className="text-4xl font-bold text-gray-900 mb-8 text-center text-primary">Our Collections</h1>
       
       {/* Filters and Sort */}
       <div className="flex flex-wrap items-center justify-between gap-4 mb-8">
@@ -88,39 +94,6 @@ export default function Collections() {
             <Filter className="h-5 w-5 mr-2" />
             Filters
           </button>
-          
-          <div className="flex space-x-2">
-            {/* <button
-              onClick={() => setSelectedCategory('all')}
-              className={`px-4 py-2 rounded-md text-sm ${
-                selectedCategory === 'all'
-                  ? 'bg-amber-600 text-white'
-                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-              }`}
-            >
-              All
-            </button> */}
-            <button
-              onClick={() => setSelectedCategory('gel')}
-              className={`px-4 py-2 rounded-md text-sm ${
-                selectedCategory === 'gel'
-                  ? 'bg-amber-600 text-white'
-                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-              }`}
-            >
-              Sea Moss Gel
-            </button>
-            {/* <button
-              onClick={() => setSelectedCategory('dried')}
-              className={`px-4 py-2 rounded-md text-sm ${
-                selectedCategory === 'dried'
-                  ? 'bg-amber-600 text-white'
-                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-              }`}
-            >
-              Dried Sea Moss
-            </button> */}
-          </div>
         </div>
 
         <select
@@ -153,6 +126,9 @@ export default function Collections() {
       />
 
       <ProductGrid products={filteredProducts} />
+
+     <FeaturedCollections products={driedProducts} isDried={true} />
+
     </div>
   );
 }
