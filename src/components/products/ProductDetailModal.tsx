@@ -2,7 +2,7 @@ import { Product } from '../types/product';
 
 export const products: Product[] = [
 
-  //Dry sea moss
+  // Dry sea moss
   {
     id: 'prod_SDjTdlAWkSiZJ6',
     priceId: 'price_1RJI0TJemDY4zv34y0Eh1zkI',
@@ -37,18 +37,7 @@ export const products: Product[] = [
     inStock: true,
   },
 
-  // REGULAR SEA MOSS GELS
-  {
-    id: 'prod_SDjNJyYIItQ01q',
-    priceId: 'price_1RJHusJemDY4zv34JwLdAzFM',
-    name: 'Gold Sea Moss Gel 16oz',
-    category: 'gel',
-    price: 30.0,
-    dimensions: { size: '16oz' },
-    description: 'Gold sea moss gel that naturally enhances libido and sexual performance. Made from high-quality wildcrafted sea moss for optimal potency.',
-    images: ['https://yrlwfarajldbigpdyfuu.supabase.co/storage/v1/object/public/media//Gold%201.png'],
-    inStock: true,
-  },
+  // REGULAR SEA MOSS GELS (reordered 24oz before 16oz)
   {
     id: 'prod_SDjN0X4N23uRLY',
     priceId: 'price_1RJHuaJemDY4zv34djgpO5ss',
@@ -61,14 +50,14 @@ export const products: Product[] = [
     inStock: true,
   },
   {
-    id: 'prod_SDj8AJdlrTOYt9',
-    priceId: 'price_1RJHgZJemDY4zv34N9RjYKc6',
-    name: 'Green Sea Moss Gel 16oz',
+    id: 'prod_SDjNJyYIItQ01q',
+    priceId: 'price_1RJHusJemDY4zv34JwLdAzFM',
+    name: 'Gold Sea Moss Gel 16oz',
     category: 'gel',
     price: 30.0,
     dimensions: { size: '16oz' },
-    description: 'Green sea moss variety is full of chlorophyll, rich in zinc and 92 minerals that enhance reproductive health and boosts libido. Natural support for sexual wellness.',
-    images: ['https://yrlwfarajldbigpdyfuu.supabase.co/storage/v1/object/public/media//Green%201.png'],
+    description: 'Gold sea moss gel that naturally enhances libido and sexual performance. Made from high-quality wildcrafted sea moss for optimal potency.',
+    images: ['https://yrlwfarajldbigpdyfuu.supabase.co/storage/v1/object/public/media//Gold%201.png'],
     inStock: true,
   },
   {
@@ -83,14 +72,14 @@ export const products: Product[] = [
     inStock: true,
   },
   {
-    id: 'prod_SDj73CDObYRUFS',
-    priceId: 'price_1RJHfSJemDY4zv344VM6zIru',
-    name: 'Purple Sea Moss Gel 16oz',
+    id: 'prod_SDj8AJdlrTOYt9',
+    priceId: 'price_1RJHgZJemDY4zv34N9RjYKc6',
+    name: 'Green Sea Moss Gel 16oz',
     category: 'gel',
     price: 30.0,
     dimensions: { size: '16oz' },
-    description: 'Purple sea moss gel that naturally enhances libido and sexual wellness. Rich in 92 minerals that support intimate health.',
-    images: ['https://yrlwfarajldbigpdyfuu.supabase.co/storage/v1/object/public/media//Purple%201.png'],
+    description: 'Green sea moss variety is full of chlorophyll, rich in zinc and 92 minerals that enhance reproductive health and boosts libido. Natural support for sexual wellness.',
+    images: ['https://yrlwfarajldbigpdyfuu.supabase.co/storage/v1/object/public/media//Green%201.png'],
     inStock: true,
   },
   {
@@ -101,6 +90,17 @@ export const products: Product[] = [
     price: 40.0,
     dimensions: { size: '24oz' },
     description: 'Our largest size of Purple Sea Moss Gel, formulated to enhance libido and sexual vitality. Experience the full benefits of enhanced intimate wellness.',
+    images: ['https://yrlwfarajldbigpdyfuu.supabase.co/storage/v1/object/public/media//Purple%201.png'],
+    inStock: true,
+  },
+  {
+    id: 'prod_SDj73CDObYRUFS',
+    priceId: 'price_1RJHfSJemDY4zv344VM6zIru',
+    name: 'Purple Sea Moss Gel 16oz',
+    category: 'gel',
+    price: 30.0,
+    dimensions: { size: '16oz' },
+    description: 'Purple sea moss gel that naturally enhances libido and sexual wellness. Rich in 92 minerals that support intimate health.',
     images: ['https://yrlwfarajldbigpdyfuu.supabase.co/storage/v1/object/public/media//Purple%201.png'],
     inStock: true,
   },
