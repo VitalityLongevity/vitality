@@ -4,7 +4,7 @@ import ProductGrid from '../components/collections/ProductGrid';
 import FilterSidebar from '../components/collections/FilterSidebar';
 import { Filter } from 'lucide-react';
 
-type Category = 'gel' | 'dried' | 'all';
+type Category = 'gel';
 type SortOption = 'price-asc' | 'price-desc' | 'name-asc' | 'name-desc';
 
 export default function Collections() {
@@ -16,7 +16,7 @@ export default function Collections() {
   const [sortOption, setSortOption] = useState<SortOption>('price-asc');
 
   const filteredProducts = useMemo(() => {
-    let filtered = selectedCategory === 'all'
+    let filtered = selectedCategory === 'gel'
       ? products
       : products.filter(p => p.category === selectedCategory);
 
@@ -90,7 +90,7 @@ export default function Collections() {
           </button>
           
           <div className="flex space-x-2">
-            <button
+            {/* <button
               onClick={() => setSelectedCategory('all')}
               className={`px-4 py-2 rounded-md text-sm ${
                 selectedCategory === 'all'
@@ -99,7 +99,7 @@ export default function Collections() {
               }`}
             >
               All
-            </button>
+            </button> */}
             <button
               onClick={() => setSelectedCategory('gel')}
               className={`px-4 py-2 rounded-md text-sm ${
@@ -110,7 +110,7 @@ export default function Collections() {
             >
               Sea Moss Gel
             </button>
-            <button
+            {/* <button
               onClick={() => setSelectedCategory('dried')}
               className={`px-4 py-2 rounded-md text-sm ${
                 selectedCategory === 'dried'
@@ -119,7 +119,7 @@ export default function Collections() {
               }`}
             >
               Dried Sea Moss
-            </button>
+            </button> */}
           </div>
         </div>
 
