@@ -1,142 +1,255 @@
-import { Product } from '../types/product';
+import React, { useEffect, useState } from 'react';
+import { X, Minus, Plus, Loader2, Truck, Package } from 'lucide-react';
+import { Product } from '../../types/product';
+import { supabase } from '../../lib/supabase';
+import ProductImageGallery from './ProductImageGallery';
+import ReviewList from '../reviews/ReviewList';
 
-export const products: Product[] = [
+interface InventoryInfo {
+  inventory_level: number;
+  status: 'in_stock' | 'low_stock' | 'out_of_stock';
+}
 
-  // Dry sea moss
-  {
-    id: 'prod_SDjTdlAWkSiZJ6',
-    priceId: 'price_1RJI0TJemDY4zv34y0Eh1zkI',
-    name: 'Premium Purple Sea Moss (Dried)',
-    category: 'dried',
-    price: 50.0,
-    dimensions: { size: '1 bag' },
-    description: 'Rare purple sea moss variety, known for enhancing libido and sexual vitality. Rich in 92 minerals that support hormonal balance and boost sex drive naturally.',
-    images: ['https://static.wixstatic.com/media/c73eb8_c1d98f4536ee459bb2aa8b985a406a8c~mv2.jpg'],
-    inStock: true,
-  },
-  {
-    id: 'prod_SDjQJMRbnjoRcD',
-    priceId: 'price_1RJHy7JemDY4zv34DnSI9CqK',
-    name: 'Premium Green Sea Moss (Dried)',
-    category: 'dried',
-    price: 50.0,
-    dimensions: { size: '1 bag' },
-    description: 'Green sea moss variety is full of chlorophyll, rich in zinc and 92 minerals that enhance reproductive health and boosts libido. Natural support for sexual wellness.',
-    images: ['https://static.wixstatic.com/media/c73eb8_8a88b2b0d0c7480ea872e6f743976bff~mv2.jpg'],
-    inStock: true,
-  },
-  {
-    id: 'prod_SDjTDZwG49t20y',
-    priceId: 'price_1RJI0wJemDY4zv34SMC3qBCU',
-    name: 'Premium Gold Sea Moss (Dried)',
-    category: 'dried',
-    price: 50.0,
-    dimensions: { size: '1 bag' },
-    description: 'High-quality wildcrafted gold sea moss, known for boosting sex drive and fertility. Rich in 92 minerals that enhance sexual vitality and stamina.',
-    images: ['https://static.wixstatic.com/media/c73eb8_ff7f66e9507641faa38814ee86fc103b~mv2.jpg'],
-    inStock: true,
-  },
+interface ProductDetailModalProps {
+  product: Product;
+  isOpen: boolean;
+  onClose: () => void;
+  onAddToCart: (product: Product, quantity: number) => void;
+}
 
-  // REGULAR SEA MOSS GELS (reordered 24oz before 16oz)
-  {
-    id: 'prod_SDjN0X4N23uRLY',
-    priceId: 'price_1RJHuaJemDY4zv34djgpO5ss',
-    name: 'Gold Sea Moss Gel 24oz',
-    category: 'gel',
-    price: 40.0,
-    dimensions: { size: '24oz' },
-    description: 'Our largest size of libido-enhancing Gold Sea Moss Gel. Packed with 92 minerals that boost sex drive and support sexual wellness naturally.',
-    images: ['https://yrlwfarajldbigpdyfuu.supabase.co/storage/v1/object/public/media//Gold%201.png'],
-    inStock: true,
-  },
-  {
-    id: 'prod_SDjNJyYIItQ01q',
-    priceId: 'price_1RJHusJemDY4zv34JwLdAzFM',
-    name: 'Gold Sea Moss Gel 16oz',
-    category: 'gel',
-    price: 30.0,
-    dimensions: { size: '16oz' },
-    description: 'Gold sea moss gel that naturally enhances libido and sexual performance. Made from high-quality wildcrafted sea moss for optimal potency.',
-    images: ['https://yrlwfarajldbigpdyfuu.supabase.co/storage/v1/object/public/media//Gold%201.png'],
-    inStock: true,
-  },
-  {
-    id: 'prod_SDj8RTYukR2cva',
-    priceId: 'price_1RJHgIJemDY4zv34u5ZNWNWM',
-    name: 'Green Sea Moss Gel 24oz',
-    category: 'gel',
-    price: 40.0,
-    dimensions: { size: '24oz' },
-    description: 'Our largest size of Green Sea Moss Gel, packed with chlorophyll and 92 minerals that enhance sexual performance and boost libido naturally.',
-    images: ['https://yrlwfarajldbigpdyfuu.supabase.co/storage/v1/object/public/media//Green%201.png'],
-    inStock: true,
-  },
-  {
-    id: 'prod_SDj8AJdlrTOYt9',
-    priceId: 'price_1RJHgZJemDY4zv34N9RjYKc6',
-    name: 'Green Sea Moss Gel 16oz',
-    category: 'gel',
-    price: 30.0,
-    dimensions: { size: '16oz' },
-    description: 'Green sea moss variety is full of chlorophyll, rich in zinc and 92 minerals that enhance reproductive health and boosts libido. Natural support for sexual wellness.',
-    images: ['https://yrlwfarajldbigpdyfuu.supabase.co/storage/v1/object/public/media//Green%201.png'],
-    inStock: true,
-  },
-  {
-    id: 'prod_SDj6byIY15g9VO',
-    priceId: 'price_1RJHe2JemDY4zv34XsxTtG9j',
-    name: 'Purple Sea Moss Gel 24oz',
-    category: 'gel',
-    price: 40.0,
-    dimensions: { size: '24oz' },
-    description: 'Our largest size of Purple Sea Moss Gel, formulated to enhance libido and sexual vitality. Experience the full benefits of enhanced intimate wellness.',
-    images: ['https://yrlwfarajldbigpdyfuu.supabase.co/storage/v1/object/public/media//Purple%201.png'],
-    inStock: true,
-  },
-  {
-    id: 'prod_SDj73CDObYRUFS',
-    priceId: 'price_1RJHfSJemDY4zv344VM6zIru',
-    name: 'Purple Sea Moss Gel 16oz',
-    category: 'gel',
-    price: 30.0,
-    dimensions: { size: '16oz' },
-    description: 'Purple sea moss gel that naturally enhances libido and sexual wellness. Rich in 92 minerals that support intimate health.',
-    images: ['https://yrlwfarajldbigpdyfuu.supabase.co/storage/v1/object/public/media//Purple%201.png'],
-    inStock: true,
-  },
+const ProductDetailModal = ({ product, isOpen, onClose, onAddToCart }: ProductDetailModalProps) => {
+  const [quantity, setQuantity] = useState(1);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [success, setSuccess] = useState(false);
+  const [inventoryInfo, setInventoryInfo] = useState<InventoryInfo | null>(null);
+  const [loadingInventory, setLoadingInventory] = useState(true);
 
-  // FREE 4oz SAMPLE OPTIONS
-  {
-    id: 'prod_SDjM1LM0rxYZ7y',
-    priceId: 'price_1RJHu3JemDY4zv34BZ6PlRA4',
-    name: 'Gold Sea Moss Gel 4oz (Sample)',
-    category: 'gel',
-    price: 0.0,
-    dimensions: { size: '4oz' },
-    description: 'Try our libido-boosting Gold Sea Moss Gel with this free 4oz sample. Experience enhanced sexual vitality. Limited to one per order.',
-    images: ['https://static.wixstatic.com/media/c73eb8_b5094418333a4d289064c9cf387175cc~mv2.png'],
-    inStock: true,
-  },
-  {
-    id: 'prod_SDjMxZFKiSb4TO',
-    priceId: 'price_1RJHtaJemDY4zv34W8a3kVfi',
-    name: 'Green Sea Moss Gel 4oz (Sample)',
-    category: 'gel',
-    price: 0.0,
-    dimensions: { size: '4oz' },
-    description: 'Sample our Green Sea Moss Gel that naturally enhances libido and sexual wellness. Experience the difference. One per order.',
-    images: ['https://yrlwfarajldbigpdyfuu.supabase.co/storage/v1/object/public/media//Green%20Sample.png'],
-    inStock: true,
-  },
-  {
-    id: 'prod_SDjIolsjy0KOCh',
-    priceId: 'price_1RJHq3JemDY4zv34lhksh2X0',
-    name: 'Purple Sea Moss Gel 4oz (Sample)',
-    category: 'gel',
-    price: 0.0,
-    dimensions: { size: '4oz' },
-    description: 'Experience our Purple Sea Moss Gel that supports sexual health and enhances libido. Free 4oz sample, one per order.',
-    images: ['https://yrlwfarajldbigpdyfuu.supabase.co/storage/v1/object/public/media//Purple%20Sample2.png'],
-    inStock: true,
-  },
-];
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') onClose();
+    };
+    window.addEventListener('keydown', handleEscape);
+    return () => {
+      window.removeEventListener('keydown', handleEscape);
+      document.body.style.overflow = 'unset';
+    };
+  }, [isOpen, onClose]);
+
+  useEffect(() => {
+    const fetchInventory = async () => {
+      try {
+        setLoadingInventory(true);
+        const { data, error } = await supabase
+          .rpc('get_inventory_status');
+
+        if (error) throw error;
+        
+        const productInventory = data?.find((item: { product_id: string; }) => item.product_id === product.id);
+        if (productInventory) {
+          setInventoryInfo({
+            inventory_level: productInventory.inventory_level,
+            status: productInventory.status as 'in_stock' | 'low_stock' | 'out_of_stock'
+          });
+        }
+      } catch (err) {
+        console.error('Error fetching inventory:', err);
+      } finally {
+        setLoadingInventory(false);
+      }
+    };
+
+    if (isOpen && product.id) {
+      fetchInventory();
+    }
+  }, [isOpen, product.id]);
+
+  const handleQuantityChange = (delta: number) => {
+    setQuantity(prev => {
+      const newValue = prev + delta;
+      const maxQuantity = inventoryInfo?.inventory_level || 0;
+      return Math.max(1, Math.min(newValue, maxQuantity));
+    });
+  };
+
+  const handleAddToCart = async () => {
+    try {
+      setLoading(true);
+      setError(null);
+      // Simulate API call
+      await new Promise(resolve => setTimeout(resolve, 500));
+      onAddToCart(product, quantity);
+      setSuccess(true);
+      setTimeout(() => {
+        setSuccess(false);
+        onClose();
+      }, 1500);
+    } catch (err) {
+      setError('Failed to add item to cart. Please try again.');
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  if (!isOpen) return null;
+
+  return (
+    <div
+      className="fixed inset-0 z-50 overflow-y-auto"
+      aria-labelledby="modal-title"
+      role="dialog"
+      aria-modal="true"
+    >
+      <div
+        className="fixed inset-0 bg-black bg-opacity-50 transition-opacity"
+        aria-hidden="true"
+        onClick={onClose}
+      />
+      
+      <div className="flex min-h-screen items-center justify-center p-4">
+        <div
+          className="relative w-full max-w-2xl rounded-lg bg-white shadow-xl"
+          onClick={e => e.stopPropagation()}
+        >
+          {/* Close button */}
+          <button
+            onClick={onClose}
+            className="absolute right-4 top-4 text-gray-400 hover:text-gray-500 z-50"
+            aria-label="Close modal"
+          >
+            <X className="h-6 w-6" />
+          </button>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 p-6">
+            <ProductImageGallery images={product.images} productName={product.name} />
+
+            {/* Product details */}
+            <div className="flex flex-col items-start">
+              <h2 id="modal-title" className="text-2xl font-bold text-gray-900">
+                {product.name}
+              </h2>
+              <p className="mt-2 text-2xl text-amber-600">${product.price}</p>
+              
+              <div className="mt-4 space-y-2">
+                {/* Stock Status */}
+                <div className="flex items-center text-sm">
+                  {loadingInventory ? (
+                    <Loader2 className="h-4 w-4 animate-spin text-amber-600" />
+                  ) : (
+                    <>
+                      <span className={`mr-2 h-3 w-3 rounded-full ${
+                        inventoryInfo?.status === 'in_stock' ? 'bg-green-500' :
+                        inventoryInfo?.status === 'low_stock' ? 'bg-yellow-500' :
+                        'bg-red-500'
+                      }`} />
+                      <span className={
+                        inventoryInfo?.status === 'in_stock' ? 'text-green-700' :
+                        inventoryInfo?.status === 'low_stock' ? 'text-yellow-700' :
+                        'text-red-700'
+                      }>
+                        {inventoryInfo?.status === 'in_stock' ? 'In Stock' :
+                         inventoryInfo?.status === 'low_stock' ? 'Low Stock' :
+                         'Out of Stock'}
+                        {inventoryInfo?.inventory_level !== undefined && 
+                         ` (${inventoryInfo.inventory_level} available)`}
+                      </span>
+                    </>
+                  )}
+                </div>
+
+                {/* Shipping Estimate */}
+                <div className="flex items-center space-x-2 text-sm text-gray-600">
+                  <Truck className="h-4 w-4" />
+                  <span>Free shipping on orders over $100</span>
+                </div>
+
+                {/* Dimensions */}
+<div className="flex items-start space-x-2 text-sm text-gray-600">
+  <Package className="h-4 w-4" />
+  <span className="flex-1 text-left">  
+    {Object.entries(product.dimensions)
+      .filter(([, value]) => value !== undefined)
+      .map(([key, value]) => `${key}: ${value}`)
+      .join(', ')}
+  </span>
+</div>
+
+                <p className="text-gray-600 text-left">{product.description}</p>
+             
+
+              </div>
+
+              {/* Quantity selector */}
+              <div className="mt-6">
+                <label htmlFor="quantity" className="block text-sm font-medium text-gray-700">
+                  Quantity
+                </label>
+                <div className="mt-2 flex items-center space-x-3">
+                  <button
+                    onClick={() => handleQuantityChange(-1)}
+                    disabled={quantity <= 1}
+                    className="rounded-full p-1 text-gray-400 hover:text-gray-500 disabled:opacity-50"
+                    aria-label="Decrease quantity"
+                  >
+                    <Minus className="h-5 w-5" />
+                  </button>
+                  <input
+                    type="number"
+                    id="quantity"
+                    value={quantity}
+                    onChange={(e) => setQuantity(Math.max(1, Math.min(parseInt(e.target.value) || 1, 10)))}
+                    className="w-16 text-center border-gray-300 rounded-md"
+                    min="1"
+                    max="10"
+                  />
+                  <button
+                    onClick={() => handleQuantityChange(1)}
+                    disabled={quantity >= (inventoryInfo?.inventory_level || 0)}
+                    className="rounded-full p-1 text-gray-400 hover:text-gray-500 disabled:opacity-50"
+                    aria-label="Increase quantity"
+                  >
+                    <Plus className="h-5 w-5" />
+                  </button>
+                </div>
+              </div>
+
+              {/* Add to cart button */}
+              <div className="mt-8">
+                <button
+                  onClick={handleAddToCart}
+                  disabled={!inventoryInfo?.inventory_level || loading}
+                  className="w-full flex items-center justify-center px-6 py-3 border border-transparent rounded-md text-base font-medium text-white bg-amber-600 hover:bg-amber-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-amber-500 disabled:opacity-50"
+                >
+                  {loading ? (
+                    <Loader2 className="h-5 w-5 animate-spin" />
+                  ) : success ? (
+                    'Added to Cart!'
+                  ) : (
+                    'Add to Cart'
+                  )}
+                </button>
+                {error && (
+                  <p className="mt-2 text-sm text-red-600">{error}</p>
+                )}
+              </div>
+            </div>
+          </div>
+          
+          <div className="mt-8 border-t pt-8">
+            <ReviewList productId={product.id} />
+          </div>
+          
+          
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default ProductDetailModal;
