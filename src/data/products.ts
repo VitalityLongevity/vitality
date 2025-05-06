@@ -2,7 +2,7 @@ import { Product } from '../types/product';
 
 export const products: Product[] = [
 
-  //Dry sea moss
+  // Dry sea moss
   {
     id: 'prod_SDjTdlAWkSiZJ6',
     priceId: 'price_1RJI0TJemDY4zv34y0Eh1zkI',
@@ -10,7 +10,7 @@ export const products: Product[] = [
     category: 'dried',
     price: 50.0,
     dimensions: { size: '1 bag' },
-    description: 'Rare purple sea moss variety, known for enhancing libido and sexual vitality. Rich in minerals that support hormonal balance and boost sex drive naturally.',
+    description: 'Rare purple sea moss variety, known for enhancing libido and sexual vitality. Rich in 92 minerals that support hormonal balance and boost sex drive naturally.',
     images: ['https://static.wixstatic.com/media/c73eb8_c1d98f4536ee459bb2aa8b985a406a8c~mv2.jpg'],
     inStock: true,
   },
@@ -21,7 +21,7 @@ export const products: Product[] = [
     category: 'dried',
     price: 50.0,
     dimensions: { size: '1 bag' },
-    description: 'Green sea moss variety is full of chlorophyll, rich in zinc and minerals that enhance reproductive health and boosts libido. Natural support for sexual wellness.',
+    description: 'Green sea moss variety is full of chlorophyll, rich in zinc and 92 minerals that enhance reproductive health and boosts libido. Natural support for sexual wellness.',
     images: ['https://static.wixstatic.com/media/c73eb8_8a88b2b0d0c7480ea872e6f743976bff~mv2.jpg'],
     inStock: true,
   },
@@ -32,14 +32,23 @@ export const products: Product[] = [
     category: 'dried',
     price: 50.0,
     dimensions: { size: '1 bag' },
-    description: 'High-quality wildcrafted gold sea moss, known for boosting sex drive and fertility. Rich in minerals that enhance sexual vitality and stamina.',
+    description: 'High-quality wildcrafted gold sea moss, known for boosting sex drive and fertility. Rich in 92 minerals that enhance sexual vitality and stamina.',
     images: ['https://static.wixstatic.com/media/c73eb8_ff7f66e9507641faa38814ee86fc103b~mv2.jpg'],
     inStock: true,
   },
 
-  
-
-  // REGULAR SEA MOSS GELS
+  // REGULAR SEA MOSS GELS (reordered 24oz before 16oz)
+  {
+    id: 'prod_SDjN0X4N23uRLY',
+    priceId: 'price_1RJHuaJemDY4zv34djgpO5ss',
+    name: 'Gold Sea Moss Gel 24oz',
+    category: 'gel',
+    price: 40.0,
+    dimensions: { size: '24oz' },
+    description: 'Our largest size of libido-enhancing Gold Sea Moss Gel. Packed with 92 minerals that boost sex drive and support sexual wellness naturally.',
+    images: ['https://yrlwfarajldbigpdyfuu.supabase.co/storage/v1/object/public/media//Gold%201.png'],
+    inStock: true,
+  },
   {
     id: 'prod_SDjNJyYIItQ01q',
     priceId: 'price_1RJHusJemDY4zv34JwLdAzFM',
@@ -52,14 +61,14 @@ export const products: Product[] = [
     inStock: true,
   },
   {
-    id: 'prod_SDjN0X4N23uRLY',
-    priceId: 'price_1RJHuaJemDY4zv34djgpO5ss',
-    name: 'Gold Sea Moss Gel 24oz',
+    id: 'prod_SDj8RTYukR2cva',
+    priceId: 'price_1RJHgIJemDY4zv34u5ZNWNWM',
+    name: 'Green Sea Moss Gel 24oz',
     category: 'gel',
     price: 40.0,
     dimensions: { size: '24oz' },
-    description: 'Our largest size of libido-enhancing Gold Sea Moss Gel. Packed with minerals that boost sex drive and support sexual wellness naturally.',
-    images: ['https://yrlwfarajldbigpdyfuu.supabase.co/storage/v1/object/public/media//Gold%201.png'],
+    description: 'Our largest size of Green Sea Moss Gel, packed with chlorophyll and 92 minerals that enhance sexual performance and boost libido naturally.',
+    images: ['https://yrlwfarajldbigpdyfuu.supabase.co/storage/v1/object/public/media//Green%201.png'],
     inStock: true,
   },
   {
@@ -69,30 +78,8 @@ export const products: Product[] = [
     category: 'gel',
     price: 30.0,
     dimensions: { size: '16oz' },
-    description: 'Green sea moss variety is full of chlorophyll, rich in zinc and minerals that enhance reproductive health and boosts libido. Natural support for sexual wellness.',
+    description: 'Green sea moss variety is full of chlorophyll, rich in zinc and 92 minerals that enhance reproductive health and boosts libido. Natural support for sexual wellness.',
     images: ['https://yrlwfarajldbigpdyfuu.supabase.co/storage/v1/object/public/media//Green%201.png'],
-    inStock: true,
-  },
-  {
-    id: 'prod_SDj8RTYukR2cva',
-    priceId: 'price_1RJHgIJemDY4zv34u5ZNWNWM',
-    name: 'Green Sea Moss Gel 24oz',
-    category: 'gel',
-    price: 40.0,
-    dimensions: { size: '24oz' },
-    description: 'Our largest size of Green Sea Moss Gel, packed with chlorophyll and minerals that enhance sexual performance and boost libido naturally.',
-    images: ['https://yrlwfarajldbigpdyfuu.supabase.co/storage/v1/object/public/media//Green%201.png'],
-    inStock: true,
-  },
-  {
-    id: 'prod_SDj73CDObYRUFS',
-    priceId: 'price_1RJHfSJemDY4zv344VM6zIru',
-    name: 'Purple Sea Moss Gel 16oz',
-    category: 'gel',
-    price: 30.0,
-    dimensions: { size: '16oz' },
-    description: 'Purple sea moss gel that naturally enhances libido and sexual wellness. Rich in minerals that support intimate health.',
-    images: ['https://yrlwfarajldbigpdyfuu.supabase.co/storage/v1/object/public/media//Purple%201.png'],
     inStock: true,
   },
   {
@@ -103,6 +90,17 @@ export const products: Product[] = [
     price: 40.0,
     dimensions: { size: '24oz' },
     description: 'Our largest size of Purple Sea Moss Gel, formulated to enhance libido and sexual vitality. Experience the full benefits of enhanced intimate wellness.',
+    images: ['https://yrlwfarajldbigpdyfuu.supabase.co/storage/v1/object/public/media//Purple%201.png'],
+    inStock: true,
+  },
+  {
+    id: 'prod_SDj73CDObYRUFS',
+    priceId: 'price_1RJHfSJemDY4zv344VM6zIru',
+    name: 'Purple Sea Moss Gel 16oz',
+    category: 'gel',
+    price: 30.0,
+    dimensions: { size: '16oz' },
+    description: 'Purple sea moss gel that naturally enhances libido and sexual wellness. Rich in 92 minerals that support intimate health.',
     images: ['https://yrlwfarajldbigpdyfuu.supabase.co/storage/v1/object/public/media//Purple%201.png'],
     inStock: true,
   },
