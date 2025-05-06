@@ -245,9 +245,7 @@ export default function ProductDetailModal({ product, isOpen, onClose, onAddToCa
             <ReviewList productId={product.id} />
           </div>
           
-          <div className="mt-8 border-t pt-8">
-            <ReviewList productId={product.id} />
-          </div>
+        
         </div>
       </div>
     </div>
