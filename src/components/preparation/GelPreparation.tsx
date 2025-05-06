@@ -32,7 +32,7 @@ const PREPARATION_STEPS = [
   },
   {
     title: 'Soak your sea moss',
-    description: 'Soak the sea moss in clean, filtered water for 12-24 hours until it expands.',
+    description: 'Soak the sea moss in clean, filtered water for 12-48 hours until it expands.',
     image: 'https://yrlwfarajldbigpdyfuu.supabase.co/storage/v1/object/public/media//Cleaning.jpg'
   },
   {
