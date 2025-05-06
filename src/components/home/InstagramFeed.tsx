@@ -61,7 +61,6 @@ export default function InstagramFeed() {
 
         <div className="text-center mt-8">
           <a
-            href="#"
             className="inline-flex items-center space-x-2 text-primary hover:text-amber-600 transition-colors"
             href="https://www.instagram.com/zazu_malazu_lifestyle_brooklyn/"
             target="_blank"
