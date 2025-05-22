@@ -2,22 +2,26 @@ import React, { useRef, useEffect, useState } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 const GALLERY_IMAGES = [
+  'https://yrlwfarajldbigpdyfuu.supabase.co/storage/v1/object/public/media//shot%203.jpg',
   'https://yrlwfarajldbigpdyfuu.supabase.co/storage/v1/object/public/media//bottles.jpg',
   'https://yrlwfarajldbigpdyfuu.supabase.co/storage/v1/object/public/media//Cleaning.jpg',
-  'https://yrlwfarajldbigpdyfuu.supabase.co/storage/v1/object/public/media//Swimming%202.jpg',
-  'https://yrlwfarajldbigpdyfuu.supabase.co/storage/v1/object/public/media//Scale.jpg',
-  'https://yrlwfarajldbigpdyfuu.supabase.co/storage/v1/object/public/media//Pour%202.jpg',
   'https://static.wixstatic.com/media/c73eb8_9c32b18a5bae4597816d66ca12958e46~mv2.jpg',
+  'https://yrlwfarajldbigpdyfuu.supabase.co/storage/v1/object/public/media//Swimming%202.jpg',
   'https://static.wixstatic.com/media/c73eb8_71fda8cd9edd43119f6921360abb2f39~mv2.jpg',
   'https://static.wixstatic.com/media/c73eb8_fbaa663c871d4136a358790fd4cef1c1~mv2.jpg',
+  'https://yrlwfarajldbigpdyfuu.supabase.co/storage/v1/object/public/media//Seamoss%20shot.jpg',
   'https://static.wixstatic.com/media/c73eb8_3bd133b17b7c453dbccc393606ddfe0b~mv2.jpg',
   'https://static.wixstatic.com/media/c73eb8_536c539ea28f4681a816fcd515bddc47~mv2.jpg',
   'https://static.wixstatic.com/media/c73eb8_c52318a4dd9a402db17dafdfdb694c06~mv2.jpg',
   'https://static.wixstatic.com/media/c73eb8_a17329ea6c924051ad8e8ec6843b79eb~mv2.jpg',
+  'https://yrlwfarajldbigpdyfuu.supabase.co/storage/v1/object/public/media//Scale.jpg',
   'https://static.wixstatic.com/media/c73eb8_d6c73262f2d34a68b3f3d2d126d210b1~mv2.jpg',
+  'https://yrlwfarajldbigpdyfuu.supabase.co/storage/v1/object/public/media//Pour%202.jpg',
   'https://static.wixstatic.com/media/c73eb8_45de8f50352c4c21b62d3139bc5c30a1~mv2.jpg',
-  'https://static.wixstatic.com/media/c73eb8_6ca46856138149649d482c61be01d735~mv2.jpg'
+  'https://static.wixstatic.com/media/c73eb8_6ca46856138149649d482c61be01d735~mv2.jpg',
+  'https://yrlwfarajldbigpdyfuu.supabase.co/storage/v1/object/public/media//sea%20moss%20shot%202.jpg'
 ];
+
 
 export default function Gallery() {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
