@@ -49,7 +49,7 @@ export default function Contact() {
 
           <div className="space-y-6">
             <ContactDetail icon={Phone} title="Call Us" content="(919) 730-8782" />
-            <ContactDetail icon={Mail} title="Email Us" content="kayobless@gmail.com" />
+            <ContactDetail icon={Mail} title="Email Us" content="info@seamossvitality.com" />
           </div>
         </div>
 
