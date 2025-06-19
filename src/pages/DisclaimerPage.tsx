@@ -70,7 +70,7 @@ export default function DisclaimerPage() {
             If you have any questions about this disclaimer or our products, please contact us at:
           </p>
           <ul className="list-none pl-0 mt-2">
-            <li>Email: kayobless@gmail.com</li>
+            <li>Email: info@seamossvitality.com</li>
             <li>Phone: (919) 730-8782</li>
           </ul>
         </div>
