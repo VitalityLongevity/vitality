@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Instagram, Mail, Phone } from 'lucide-react';
+import { Instagram, Facebook, Mail, Phone } from 'lucide-react';
 
 const Footer = () => {
   const [email, setEmail] = useState('');
@@ -128,12 +128,23 @@ const Footer = () => {
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div className="flex space-x-6">
               <a
-                href="https://www.instagram.com/zazu_malazu_lifestyle_brooklyn/"
+                href="https://www.instagram.com/vitalityequalslongevity/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-600 hover:text-amber-600"
               >
                 <Instagram className="h-6 w-6" />
+              </a>
+            </div>
+
+            <div className="flex space-x-6">
+              <a
+                href="https://www.facebook.com/vitalityequalslongevity/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-600 hover:text-amber-600"
+              >
+                <Facebook className="h-6 w-6" />
               </a>
             </div>
             <p className="text-gray-600 text-sm">
