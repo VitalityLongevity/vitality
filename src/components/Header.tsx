@@ -91,12 +91,14 @@ export default function Header() {
               <Link
                 to="/"
                 className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50"
+                onClick={() => setIsMenuOpen(false)}
               >
                 Home
               </Link>
               <Link
                 to="/collections"
                 className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50"
+                onClick={() => setIsMenuOpen(false)}
               >
                 Collections
               </Link>
@@ -104,24 +106,28 @@ export default function Header() {
                <Link
                 to="/preparation"
                 className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50"
+                onClick={() => setIsMenuOpen(false)}
               >
                 Preparation
               </Link>
                <Link
                 to="/education"
                 className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50"
+                onClick={() => setIsMenuOpen(false)}
               >
                 Education
               </Link>
               <Link
                 to="/contact"
                 className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50"
+                onClick={() => setIsMenuOpen(false)}
               >
                 Contact
               </Link>
               <Link
                 to="/collections"
                 className="block mx-3 my-2 px-4 py-2 text-base font-medium text-white bg-amber-600 hover:bg-amber-700 rounded-lg text-center"
+                onClick={() => setIsMenuOpen(false)}
               >
                 Shop Now
               </Link>
@@ -129,6 +135,7 @@ export default function Header() {
                 <Link
                   to="/admin"
                   className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50"
+                  onClick={() => setIsMenuOpen(false)}
                 >
                   Admin Dashboard
                 </Link>
