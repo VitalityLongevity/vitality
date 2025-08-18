@@ -17,29 +17,35 @@ export default function Header() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <Link to="/" className="flex-shrink-0">
+          <Link to="/" className="flex-shrink-0 flex-1 md:flex-none">
             {/* <img
               src="https://static.wixstatic.com/media/c73eb8_f1111a297cd94b96bd2d0be6c9d2d39f~mv2.png"
               alt="Lucille's Sweetgrass Baskets"
               className="h-12 w-auto"
             /> */}
-            <h2 className="font-bold text-primary md:text-xl text-sm hover:text-amber-600 transition-colors pl-2 md:pl-6">VITALITY = LONGEVITY</h2>
+            <h2 className="font-bold text-primary md:text-xl text-sm hover:text-amber-600 transition-colors">VITALITY = LONGEVITY</h2>
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex space-x-8">
+          <nav className="hidden md:flex items-center justify-center space-x-6 flex-1">
             <Link to="/" className="text-gray-700 hover:text-gray-900">Home</Link>
             <Link to="/collections" className="text-gray-700 hover:text-gray-900">Collections</Link>
             <Link to="/preparation" className="text-gray-700 hover:text-gray-900">Preparation</Link>
             <Link to="/education" className="text-gray-700 hover:text-gray-900">Education</Link>
             <Link to="/contact" className="text-gray-700 hover:text-gray-900">Contact</Link>
+            <Link 
+              to="/collections" 
+              className="bg-amber-600 hover:bg-amber-700 text-white px-4 py-2 rounded-lg font-semibold transition-colors ml-2"
+            >
+              Shop Now
+            </Link>
           </nav>
 
           {/* Icons */}
-          <div className="flex items-center space-x-4">
+          <div className="flex items-center justify-end space-x-3 flex-1 md:flex-none">
             <button
               onClick={() => setIsSearchOpen(!isSearchOpen)}
-              className="text-gray-700 hover:text-gray-900"
+              className="text-gray-700 hover:text-gray-900 hidden sm:block"
             >
               <Search className="h-6 w-6" />
             </button>
@@ -63,7 +69,7 @@ export default function Header() {
             {isAdmin && (
               <Link
                 to="/admin"
-                className="text-gray-700 hover:text-gray-900"
+                className="text-gray-700 hover:text-gray-900 hidden sm:block"
                 title="Admin Dashboard"
               >
                 <LayoutDashboard className="h-6 w-6" />
@@ -71,7 +77,7 @@ export default function Header() {
             )}
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="md:hidden text-gray-700 hover:text-gray-900"
+              className="md:hidden text-gray-700 hover:text-gray-900 ml-2"
             >
               {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </button>
@@ -112,6 +118,12 @@ export default function Header() {
                 className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50"
               >
                 Contact
+              </Link>
+              <Link
+                to="/collections"
+                className="block mx-3 my-2 px-4 py-2 text-base font-medium text-white bg-amber-600 hover:bg-amber-700 rounded-lg text-center"
+              >
+                Shop Now
               </Link>
               {isAdmin && (
                 <Link
