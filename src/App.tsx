@@ -20,6 +20,7 @@ import PreparationPage from './pages/PreparationPage';
 import EducationPage from './pages/EducationPage';
 import DisclaimerPage from './pages/DisclaimerPage';
 import ScrollToTop from "./components/ScrollToTop";
+import FloatingCartButton from './components/cart/FloatingCartButton';
 
 
 function App() {
@@ -69,6 +70,7 @@ function App() {
             </main>
             <Footer />
             <CartDrawer />
+            <FloatingCartButton />
           </div>
         </Router>
       </CartProvider>
